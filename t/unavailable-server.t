@@ -23,6 +23,8 @@ pass 'DBD::Pg is installed';
 
 my @PG_CONNECT = ('dbi:Pg:dbname=fake;host=192.0.2.1', 'fakeuser','fakepass') ;
 my $SQ_TABLE = "$Bin/one.db";
+cleanup();
+
 my @SQ_CONNECT = ("dbi:SQLite:$SQ_TABLE");
 
 unlink( $SQ_TABLE );
@@ -52,6 +54,7 @@ my $c = DBI->connect('DBI:Multi:', undef, undef, {
 
 ok( !timeout_call( 0, sub{ sleep 2 } ), "Timeout 0 should never time out" );
 
+diag "Pausing up to 10 seconds to test timeout...";
 my $val;
 ok(
     # Note:  Since DBD::Multi is using timeout_call, and since you can't nest
@@ -66,4 +69,9 @@ ok(
     "Value should have been returned" );
 
 is($val, 1, "Query failed over to the second DB");
-unlink( $SQ_TABLE );
+
+cleanup();
+
+sub cleanup {
+    -e $SQ_TABLE and unlink( $SQ_TABLE );
+}

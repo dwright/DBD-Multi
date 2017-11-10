@@ -11,6 +11,7 @@ my $builder = Module::Build->new( module_name        => 'DBD::Multi',
                                   release_status     => 'stable',
                                   configure_requires => { 'Module::Build' => '0', },
                                   build_requires     => {
+                                                      'Test::TCP'           => '0',
                                                       'Test::More'          => '0',
                                                       'Test::Pod::Coverage' => '1.04',
                                                       'Test::Pod'           => '1.14',

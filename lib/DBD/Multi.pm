@@ -1,12 +1,21 @@
 package DBD::Multi;
+our $VERSION   = '1.01';
+package DBD::Multi::dr;
+our $VERSION   = '1.01';
+package DBD::Multi::db;
+our $VERSION   = '1.01';
+package DBD::Multi::st;
+our $VERSION   = '1.01';
+package DBD::Multi::Handler;
+our $VERSION   = '1.01';
+
+package DBD::Multi;
 use strict;
 
 use DBI;
 DBI->setup_driver('DBD::Multi');
 
-use vars qw[$VERSION $err $errstr $sqlstate $drh];
-
-$VERSION   = '1.00';
+use vars qw[$err $errstr $sqlstate $drh];
 
 $err       = 0;        # DBI::err
 $errstr    = "";       # DBI::errstr

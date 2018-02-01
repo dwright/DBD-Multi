@@ -18,3 +18,5 @@ t/purge_failures.t
 t/random.t
 t/unavailable-server.t
 TODO
+META.yml
+META.json

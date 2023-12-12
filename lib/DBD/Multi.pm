@@ -651,7 +651,7 @@ two database handles, and also supports lazy-loading.
 
 The original inspiration for this module.  It doesn't support as many
 connection configurations options at this module.   It does try to support
-write options in a single master, mutliple slave configuration.   It does this
+write options in a single master, multiple slave configuration.   It does this
 by parsing your SQL and trying to decide if you were doing a read or write
 operation.
 
